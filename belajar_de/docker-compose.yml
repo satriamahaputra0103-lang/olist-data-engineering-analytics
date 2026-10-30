@@ -1,0 +1,19 @@
+
+name: bootcam_data_engineer
+services:
+  postgres:
+    image: postgres:17
+    container_name: de-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: de_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: learning_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    name: bootcam_data_engineer_postgres_data

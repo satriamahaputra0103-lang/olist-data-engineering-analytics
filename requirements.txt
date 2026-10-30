@@ -1,0 +1,20 @@
+# Data processing
+numpy==2.5.4
+pandas==3.0.6
+
+# PostgreSQL and database
+psycopg==3.3.6
+psycopg-binary==3.3.6
+SQLAlchemy==2.1.4
+
+# Environment configuration
+python-dotenv==1.2.4
+
+# Data orchestration
+dagster==1.13.27
+dagster-webserver==1.13.27
+dagster-dbt==0.29.27
+
+# Data transformation
+dbt-core==1.12.6
+dbt-postgres==1.11.0

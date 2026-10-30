@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv313/
+venv/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Dagster
+.dagster_home/
+.tmp_dagster_home*/
+.dagster/
+*.db
+
+# dbt
+olist_dbt/target/
+olist_dbt/logs/
+olist_dbt/dbt_packages/
+olist_dbt/__pycache__/
+olist_dbt/.user.yml
+olist_dbt/profiles.yml
+*.bak
+
+# Data files
+data_set_kagle/data/*.csv
+*.parquet
+*.xlsx
+*.zip
+
+# Superset
+superset_home/
+
+# OS and editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary dependency snapshot
+requirements-current.txt

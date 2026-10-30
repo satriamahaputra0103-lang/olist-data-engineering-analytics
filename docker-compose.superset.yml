@@ -1,0 +1,28 @@
+services:
+  superset:
+    build:
+      context: .
+      dockerfile: superset/Dockerfile
+    image: olist-superset:6.1.0
+    container_name: olist-superset
+    ports:
+      - "8088:8088"
+    environment:
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+      SUPERSET_ADMIN_PASSWORD: ${SUPERSET_ADMIN_PASSWORD}
+    volumes:
+      - superset_home:/app/superset_home
+    command:
+      - /bin/sh
+      - -c
+      - |
+        superset db upgrade &&
+        if ! superset fab list-users | grep -q "admin"; then
+          superset fab create-admin --username admin --firstname Olist --lastname Admin --email admin@localhost --password "$$SUPERSET_ADMIN_PASSWORD"
+        fi &&
+        superset init &&
+        /usr/bin/run-server.sh
+
+volumes:
+  superset_home:
+    name: bootcam_data_engineer_superset_home
